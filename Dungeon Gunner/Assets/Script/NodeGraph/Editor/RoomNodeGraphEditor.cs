@@ -293,7 +293,7 @@ public class RoomNodeGraphEditor : EditorWindow
         //if current node graph empty then add entrace room node first
         if(currentRoomNodeGraph.roomNodeList.Count == 0)
         {
-            CreateRoomNode(new Vector2(200f, 200f), roomNodeTypeList.list.Find(x => x.isEntrace));
+            CreateRoomNode(new Vector2(200f, 200f), roomNodeTypeList.list.Find(x => x.isEntrance));
         }
 
         CreateRoomNode(mousepostionObject, roomNodeTypeList.list.Find(x => x.isNone));
@@ -337,7 +337,7 @@ public class RoomNodeGraphEditor : EditorWindow
         //loop through all node
         foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
-            if(roomNode.isSelected && !roomNode.roomNodeType.isEntrace)
+            if(roomNode.isSelected && !roomNode.roomNodeType.isEntrance)
             {
                 roomNodeDeletionQueue.Enqueue(roomNode);
 

@@ -70,7 +70,7 @@ public class DungeonLevelSO : ScriptableObject
             if (roomTemplateSO.roomNodeType.isCorridorNs)
                 isNsCorridor = true;
 
-            if (roomTemplateSO.roomNodeType.isEntrace)
+            if (roomTemplateSO.roomNodeType.isEntrance)
                 isEntrance = true;
         }
 
@@ -104,7 +104,7 @@ public class DungeonLevelSO : ScriptableObject
                 // Check that a room template has been specified for each roomNode type
 
                 // Corridors and entrance alread checked 
-                if (roomNodeSO.roomNodeType.isEntrace || roomNodeSO.roomNodeType.isCorridorEw || roomNodeSO.roomNodeType.isCorridorNs ||
+                if (roomNodeSO.roomNodeType.isEntrance || roomNodeSO.roomNodeType.isCorridorEw || roomNodeSO.roomNodeType.isCorridorNs ||
                     roomNodeSO.roomNodeType.isCorridor || roomNodeSO.roomNodeType.isNone)
                     continue;
 

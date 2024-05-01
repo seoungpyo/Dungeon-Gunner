@@ -51,7 +51,7 @@ public class RoomNodeSO : ScriptableObject
         EditorGUI.BeginChangeCheck();
 
         //if the room node has a parent or is of type entrace then display a label else display a popup
-        if(parentRoomNodeIDList.Count>0 || roomNodeType.isEntrace)
+        if(parentRoomNodeIDList.Count>0 || roomNodeType.isEntrance)
         {
             //dispaly a label that can't be change
             EditorGUILayout.LabelField(roomNodeType.roomNodeTypeName);
@@ -308,7 +308,7 @@ public class RoomNodeSO : ScriptableObject
             return false;
 
         // if the child room is an entrance return false - the entrance must always be the top level parent node
-        if (roomNodeGraph.GetRoomNode(childID).roomNodeType.isEntrace)
+        if (roomNodeGraph.GetRoomNode(childID).roomNodeType.isEntrance)
             return false;
 
         // If adding a room to a corridor check that this corridor node doesn't already have a room added

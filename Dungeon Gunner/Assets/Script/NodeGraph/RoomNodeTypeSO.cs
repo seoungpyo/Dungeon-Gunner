@@ -16,7 +16,7 @@ public class RoomNodeTypeSO : ScriptableObject
     [Header("One Type Should Be A CorridorEW")]
     public bool isCorridorEw;
     [Header("One Type Should Be A Entrance")]
-    public bool isEntrace;
+    public bool isEntrance;
     [Header("One Type Should Be A Boss Room")]
     public bool isBossRoom;
     [Header("One type Should Be None(Unassiged)")]
