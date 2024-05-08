@@ -28,6 +28,36 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Get room node by room nodeID
+    /// </summary>
+    /// <param name="roomNodeType"></param>
+    /// <returns></returns>
+    public RoomNodeSO GetRoomNode(RoomNodeTypeSO roomNodeType)
+    {
+        foreach(RoomNodeSO node in roomNodeList)
+        {
+            if(node.roomNodeType == roomNodeType)
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Get child room nodes for supplied parent room node
+    /// </summary>
+    /// <param name="parentRoomNode"></param>
+    /// <returns></returns>
+    public IEnumerable<RoomNodeSO> GetChildRoomNode(RoomNodeSO parentRoomNode)
+    {
+        foreach(string childNodeID in parentRoomNode.childRoomNodeIDList)
+        {
+            yield return GetRoomNode(childNodeID);
+        }
+    }
+
     public RoomNodeSO GetRoomNode(string roomNodeID)
     {
         if(roomNodeDictonary.TryGetValue(roomNodeID, out RoomNodeSO roomNode))
