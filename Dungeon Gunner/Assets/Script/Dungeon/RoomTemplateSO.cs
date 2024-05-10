@@ -95,10 +95,10 @@ public class RoomTemplateSO : ScriptableObject
             EditorUtility.SetDirty(this);
         }
 
-        HelperUtilitie.VaildateCheckEnumerableValues(this, nameof(doorwayList), doorwayList);
+        HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(doorwayList), doorwayList);
 
         // Check spawn positions populated
-        HelperUtilitie.VaildateCheckEnumerableValues(this, nameof(spawnPositionArray), spawnPositionArray);
+        HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(spawnPositionArray), spawnPositionArray);
     }
 
 #endif

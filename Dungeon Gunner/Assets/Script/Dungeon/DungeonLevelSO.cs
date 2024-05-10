@@ -45,9 +45,9 @@ public class DungeonLevelSO : ScriptableObject
     private void OnValidate()
     {
         HelperUtilitie.ValidateCheckEmptyString(this, nameof(levelName), levelName);
-        if (HelperUtilitie.VaildateCheckEnumerableValues(this, nameof(roomTemplateList), roomTemplateList))
+        if (HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(roomTemplateList), roomTemplateList))
             return;
-        if (HelperUtilitie.VaildateCheckEnumerableValues(this, nameof(roomNodeGraphList), roomNodeGraphList))
+        if (HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(roomNodeGraphList), roomNodeGraphList))
             return;
 
         // Check to make sure that room templates are specified for all the node types in the specified node graphs

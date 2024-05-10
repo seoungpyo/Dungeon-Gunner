@@ -16,7 +16,24 @@ public static class HelperUtilitie
         return false;
     }
 
-    public static bool VaildateCheckEnumerableValues(Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
+    /// <summary>
+    /// null value debug check 
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldName"></param>
+    /// <param name="objectTocheck"></param>
+    /// <returns></returns>
+    public static bool ValidateCheckNullValue(Object thisObject, string fieldName, UnityEngine.Object objectTocheck)
+    {
+        if(objectTocheck == null)
+        {
+            Debug.Log(fieldName + "is null and must contain a value in object" + thisObject.name.ToString());
+            return true;
+        }
+        return false;
+    }
+
+    public static bool ValidateCheckEnumerableValues(Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
     {
         bool error = false;
         int count = 0;
@@ -49,4 +66,36 @@ public static class HelperUtilitie
         return error;
     }
     
+    /// <summary>
+    /// positive value debug check - if zero is allowed set isZeroAllowed to true. Return true if is an error.
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldName"></param>
+    /// <param name="valueToCheck"></param>
+    /// <param name="isZeroAllowed"></param>
+    /// <returns></returns>
+    public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+
+        if (isZeroAllowed)
+        {
+            if(valueToCheck < 0)
+            {
+                Debug.Log(fieldName + " must contain a positive value or zero in object " + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        else
+        {
+            if(valueToCheck <= 0)
+            {
+                Debug.Log(fieldName + " must contain a positive value in object" + thisObject.name.ToString());
+                error = true;
+            }
+        }
+
+        return error;
+    }
+
 }
