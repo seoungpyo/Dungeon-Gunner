@@ -1,12 +1,100 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Enumeration;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public static class HelperUtilitie
 {
-    public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
+    public static Camera mainCamera;
+
+    /// <summary>
+    /// Get the mouse world position
+    /// </summary>
+    /// <returns></returns>
+    public static Vector3 GetMouseWorldPosition()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+
+        Vector3 mouseScreenPosition = Input.mousePosition;
+
+        // clamp mouse position to screen size
+        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.x, 0f, Screen.width);
+        mouseScreenPosition.y = Mathf.Clamp(mouseScreenPosition.y, 0f, Screen.height);
+
+        Vector3 worldPostion = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+        worldPostion.z = 0f;
+
+        return worldPostion;
+    }
+
+    /// <summary>
+    /// Get the angle in degrees from a direction vector
+    /// </summary>
+    /// <param name="vector"></param>
+    /// <returns></returns>
+    public static float GetAngleFromVector(Vector3 vector)
+    {
+        float radians = Mathf.Atan2(vector.y, vector.x);
+
+        float degrees = radians * Mathf.Rad2Deg;
+
+        return degrees;
+    }
+
+    /// <summary>
+    /// Get aimDirection enum value from the pased in angleDegrees.
+    /// </summary>
+    /// <param name="angleDegrees"></param>
+    /// <returns></returns>
+    public static AimDirection GetAimDirection(float angleDegrees)
+    {
+        AimDirection aimDirection;
+
+        if (22f <= angleDegrees && angleDegrees <= 67f)
+        {
+            aimDirection = AimDirection.UpRight;
+        }
+        else if (67f < angleDegrees && angleDegrees <= 112f)
+        {
+            aimDirection = AimDirection.Up;
+        }
+        else if (112 < angleDegrees && angleDegrees <= 158f)
+        {
+            aimDirection = AimDirection.UpLeft;
+        }
+        else if ((158f < angleDegrees && angleDegrees <= 180f) || (-180 < angleDegrees && angleDegrees <= -135f))
+        {
+            aimDirection = AimDirection.Left;
+        }
+        else if (-135f < angleDegrees && angleDegrees <= -45f)
+        {
+            aimDirection = AimDirection.Down;
+        }
+        else if ((-45f < angleDegrees && angleDegrees <= 0f) || (0f < angleDegrees && angleDegrees < 22f))
+        {
+            aimDirection = AimDirection.Right;
+        }
+        else
+        {
+            aimDirection = AimDirection.Right;
+        }
+
+        return aimDirection;
+
+    }
+
+    /// <summary>
+    /// empty string debug check
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldName"></param>
+    /// <param name="stringToCheck"></param>
+    /// <returns></returns>
+    public static bool ValidateCheckEmptyString(UnityEngine.Object thisObject, string fieldName, string stringToCheck)
     {
         if(stringToCheck == "")
         {
@@ -23,7 +111,7 @@ public static class HelperUtilitie
     /// <param name="fieldName"></param>
     /// <param name="objectTocheck"></param>
     /// <returns></returns>
-    public static bool ValidateCheckNullValue(Object thisObject, string fieldName, UnityEngine.Object objectTocheck)
+    public static bool ValidateCheckNullValue(UnityEngine.Object thisObject, string fieldName, UnityEngine.Object objectTocheck)
     {
         if(objectTocheck == null)
         {
@@ -33,7 +121,7 @@ public static class HelperUtilitie
         return false;
     }
 
-    public static bool ValidateCheckEnumerableValues(Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
+    public static bool ValidateCheckEnumerableValues(UnityEngine.Object thisObject, string fieldName, IEnumerable enumerableObjectToCheck)
     {
         bool error = false;
         int count = 0;
@@ -65,7 +153,7 @@ public static class HelperUtilitie
 
         return error;
     }
-    
+
     /// <summary>
     /// positive value debug check - if zero is allowed set isZeroAllowed to true. Return true if is an error.
     /// </summary>
@@ -74,13 +162,13 @@ public static class HelperUtilitie
     /// <param name="valueToCheck"></param>
     /// <param name="isZeroAllowed"></param>
     /// <returns></returns>
-    public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
+    public static bool ValidateCheckPositiveValue(UnityEngine.Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
     {
         bool error = false;
 
         if (isZeroAllowed)
         {
-            if(valueToCheck < 0)
+            if (valueToCheck < 0)
             {
                 Debug.Log(fieldName + " must contain a positive value or zero in object " + thisObject.name.ToString());
                 error = true;
@@ -88,7 +176,7 @@ public static class HelperUtilitie
         }
         else
         {
-            if(valueToCheck <= 0)
+            if (valueToCheck <= 0)
             {
                 Debug.Log(fieldName + " must contain a positive value in object" + thisObject.name.ToString());
                 error = true;
@@ -98,4 +186,32 @@ public static class HelperUtilitie
         return error;
     }
 
+    /// <summary>
+    /// Get the nearest spawn position to the player
+    /// </summary>
+    /// <param name="playerPosition"></param>
+    /// <returns></returns>
+    public static Vector3 GetSpawnPositionNearestToPlayer(Vector3 playerPosition)
+    {
+        Room currentRoom = GameManager.Instance.GetCurrentRoom();
+
+        Grid grid = currentRoom.instantiatedRoom.grid;
+
+        Vector3 nearestSpawnPosition = new Vector3(1000f, 1000f, 0f);
+
+        // loop through room spawn positions
+        foreach(Vector2Int spawnPostionGrid in currentRoom.spawnPositionArray)
+        {
+            // convert the spawn grid positions to world positions
+            Vector3 spawnPositionWorld = grid.CellToWorld((Vector3Int)spawnPostionGrid);
+
+            if(Vector3.Distance(spawnPositionWorld, playerPosition) < Vector3.Distance(nearestSpawnPosition, playerPosition))
+            {
+                nearestSpawnPosition = spawnPositionWorld;
+            }
+        }
+
+        return nearestSpawnPosition;
+
+    }
 }

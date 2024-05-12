@@ -9,11 +9,23 @@ public static class Settings
     public const int maxDungeonBuildAttempts = 10;
     #endregion DUNGEON BUILD SETTINGS
 
-    #region Room Settings
+    #region Room SETTINGS
 
-    public const int maxChildCorridors = 3; 
+    public const int maxChildCorridors = 3;
     //Max number of child corridors leading from a room - maximum should be 3 although this is not recommended
     //since it can cause the dungeon building to fail since the room are more likely to not fit together
 
-    #endregion
+    #endregion Room SETTINGS
+
+    #region ANIMATION PARAMETERS
+    // animator parameters - player
+    public static int aimUp = Animator.StringToHash("aimUp");
+    public static int aimDown = Animator.StringToHash("aimDown");
+    public static int aimUpRight = Animator.StringToHash("aimUpRight");
+    public static int aimUpLeft = Animator.StringToHash("aimUpLeft");
+    public static int aimRight = Animator.StringToHash("aimRight");
+    public static int aimLeft = Animator.StringToHash("aimLeft");
+    public static int isIdle = Animator.StringToHash("isIdle");
+    public static int isMoving = Animator.StringToHash("isMoving");
+    #endregion ANIMATION PARAMETERS
 }

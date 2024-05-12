@@ -7,6 +7,17 @@
     none
 }
 
+
+public enum AimDirection
+{
+    Up,
+    UpRight,
+    UpLeft,
+    Right,
+    Left,
+    Down
+}
+
 public enum GameState
 {
     gameStarted,
@@ -21,3 +32,4 @@ public enum GameState
     dungeonOverviewMap,
     restartGame
 }
+
