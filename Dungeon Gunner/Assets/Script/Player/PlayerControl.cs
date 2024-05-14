@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,12 +11,21 @@ public class PlayerControl : MonoBehaviour
     #endregion Tooltip
     [SerializeField] private Transform weaponShootPosition;
 
+    #region Tooltip
+    [Tooltip("MovementDetailsSO scriptable object containing movement details such as speed")]
+    #endregion Tooltip
+
+    [SerializeField] private MovementDetailsSO movementDetails;
+
     private Player player;
+    private float moveSpeed;
 
     private void Awake()
     {
         // load component
         player = GetComponent<Player>();
+
+        moveSpeed = movementDetails.GetMoveSpeed();
     }
 
     private void Update()
@@ -30,7 +40,30 @@ public class PlayerControl : MonoBehaviour
     // player movement input
     private void MovementInput()
     {
-        player.idleEvent.CallIdleEvent();
+        // get movement input
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float verticalMovement = Input.GetAxisRaw("Vertical");
+
+        // create a direction vector based on the input
+        Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
+
+        if(horizontalMovement != 0f && verticalMovement != 0f)
+        {
+            //direction *= 0.7f;
+            direction = direction.normalized;
+        }
+
+        // if there is movement
+        if (direction != Vector2.zero)
+        {
+            // trigger movement event
+            player.movementByVelocityEvent.CallMovementByVElocityEvent(direction, moveSpeed);
+        }
+        // else trigger idle event
+        else
+        {
+            player.idleEvent.CallIdleEvent();
+        }
     }
 
     // weapon input
@@ -67,4 +100,15 @@ public class PlayerControl : MonoBehaviour
         // trigger weapon aim event
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
     }
+
+    #region Validation
+#if UNITY_EDITOR
+
+    private void OnValidate()
+    {
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(movementDetails), movementDetails);    
+    }
+
+#endif
+    #endregion Validation
 }

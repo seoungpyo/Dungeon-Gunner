@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Enumeration;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
@@ -155,6 +155,37 @@ public static class HelperUtilitie
     }
 
     /// <summary>
+    /// positive value debug check - if zero is allowed set isZeroAllowed to true. Returns true if there is an error
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldName"></param>
+    /// <param name="valueToCheck"></param>
+    /// <param name="isZeroAllowed"></param>
+    /// <returns></returns>
+    public static bool ValidateCheckPositiveValue(UnityEngine.Object thisObject, string fieldName, float valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0)
+            {
+                Debug.Log(fieldName + " must contain a positive value or zero in object" + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        else
+        {
+            if (valueToCheck <= 0)
+            {
+                Debug.Log(fieldName + " must contain a positive value in object" + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        return error;
+    }
+
+    /// <summary>
     /// positive value debug check - if zero is allowed set isZeroAllowed to true. Return true if is an error.
     /// </summary>
     /// <param name="thisObject"></param>
@@ -182,6 +213,34 @@ public static class HelperUtilitie
                 error = true;
             }
         }
+
+        return error;
+    }
+
+    /// <summary>
+    /// positive range debug check - set isZeroAllowed to true if the min and max range values can both be zero. Returns true if there is an error
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldNameMinimum"></param>
+    /// <param name="valueToCheckMinimum"></param>
+    /// <param name="fieldNameMaximum"></param>
+    /// <param name="valueToCheckMaximum"></param>
+    /// <param name="isZeroAllowed"></param>
+    /// <returns></returns>
+    public  static bool ValidateCheckPositiveRange(Object thisObject, string fieldNameMinimum, float valueToCheckMinimum, string fieldNameMaximum,
+        float valueToCheckMaximum, bool isZeroAllowed)
+    {
+        bool error = false;
+        if (valueToCheckMinimum > valueToCheckMaximum)
+        {
+            Debug.Log(fieldNameMinimum + " must be less than or equal to " + fieldNameMaximum + " in object " + thisObject.name.ToString());
+            error = true;
+
+        }
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMinimum, valueToCheckMinimum, isZeroAllowed)) error = true;
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed)) error = true;
 
         return error;
     }
