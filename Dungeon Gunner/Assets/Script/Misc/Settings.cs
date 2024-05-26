@@ -15,7 +15,7 @@ public static class Settings
     #endregion DUNGEON BUILD SETTINGS
 
     #region Room SETTINGS
-
+    public const float fadeInTime = 0.5f; // time to fade in the room
     public const int maxChildCorridors = 3;
     //Max number of child corridors leading from a room - maximum should be 3 although this is not recommended
     //since it can cause the dungeon building to fail since the room are more likely to not fit together
@@ -36,6 +36,8 @@ public static class Settings
     public static int rollLeft = Animator.StringToHash("rollLeft");
     public static int rollRight = Animator.StringToHash("rollRight");
     public static int rollDown = Animator.StringToHash("rollDown");
+
+    public static float baseSpeedForPlayerAnimatons = 8f; 
 
     // animator parameters - door
     public static int open = Animator.StringToHash("open");

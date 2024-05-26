@@ -17,6 +17,16 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
     private RoomNodeTypeListSO roomNodeTypeList;
     private bool dungeonBuildSuccessful;
 
+    private void OnEnable()
+    {
+        GameResources.Instance.dimmendMaterial.SetFloat("Alpha_Slider", 0f);
+    }
+
+    private void OnDisable()
+    {
+        GameResources.Instance.dimmendMaterial.SetFloat("Alpha_Slider", 1f);
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -25,7 +35,7 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
         LoadRoomNodeTypeList();
 
         // set dimmed material to fully visible
-        GameResources.Instance.dimmendMaterial.SetFloat("Alpha_Slider", 1f);
+        // GameResources.Instance.dimmendMaterial.SetFloat("Alpha_Slider", 1f);
     }
 
     /// <summary>

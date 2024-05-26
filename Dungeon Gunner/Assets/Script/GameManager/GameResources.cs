@@ -45,5 +45,19 @@ public class GameResources : MonoBehaviour
     [Tooltip("Dimmed Material")]
     #endregion Tooltip
     public Material dimmendMaterial;
+    public Material litMaterial;
+    public Shader variableLitShader;
 
+    #region Validation
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+    }
+#endif
+    #endregion Validation
 }
