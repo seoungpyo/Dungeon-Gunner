@@ -55,6 +55,22 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         player.Initalize(playerDetails);
     }
 
+    private void OnEnable()
+    {
+        // subscribe to room changed event
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+    private void OnDisable()
+    {
+        // unscribe to room changed event
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+    }
+
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        SetCurrentRoom(roomChangedEventArgs.room);
+    }
 
     private void Start()
     {

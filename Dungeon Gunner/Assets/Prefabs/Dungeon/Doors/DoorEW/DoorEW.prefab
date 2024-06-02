@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &430223207975569838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 2150274284664692070}
   - component: {fileID: 5137794072168987340}
   - component: {fileID: 5385049911066428720}
-  - component: {fileID: 4252494617069159539}
+  - component: {fileID: -2380682206532269248}
   m_Layer: 0
   m_Name: DoorEW
   m_TagString: Untagged
@@ -285,7 +285,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 5.5}
   m_EdgeRadius: 0
---- !u!114 &4252494617069159539
+--- !u!114 &-2380682206532269248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
