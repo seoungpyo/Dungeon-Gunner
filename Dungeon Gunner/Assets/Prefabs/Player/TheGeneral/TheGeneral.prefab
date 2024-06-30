@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e87ce176a15556c459b355908992b930, type: 2}
+    - target: {fileID: 1595163068013506373, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595163068013506373, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595163068013506373, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: abbe40c4d6a803f42a7c4f53404a484d, type: 3}
+    - target: {fileID: 1595163068013506373, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5017654201136877478, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
       propertyPath: m_Size.x
       value: 0.25
@@ -71,6 +87,34 @@ PrefabInstance:
     - target: {fileID: 8635093581528513759, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.18444446
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.37008545
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963791938541241344, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9200494305086352110, guid: 81d7aa7efa1784543a7cf9edd9eb5dd0, type: 3}
       propertyPath: m_Size.x
