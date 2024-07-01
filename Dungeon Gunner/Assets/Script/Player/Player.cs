@@ -15,6 +15,9 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(Idle))]
 [RequireComponent(typeof(AimWeaponEvent))]
 [RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(FireWeaponEvent))]
+[RequireComponent(typeof(FireWeapon))]
+[RequireComponent(typeof(WeaponFiredEvent))]
 [RequireComponent(typeof(SetActiveWeaponEvent))]
 [RequireComponent(typeof(SetActiveWeapon))]
 [RequireComponent(typeof(SortingGroup))] // Layer renderer squence controll component.
@@ -35,8 +38,10 @@ public class Player : MonoBehaviour
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public IdleEvent idleEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
+    [HideInInspector] public FireWeaponEvent fireWeaponEvent;
     [HideInInspector] public SetActiveWeaponEvent setActiveWeaponEvent;
     [HideInInspector] public SetActiveWeapon setActiveWeapon;
+    [HideInInspector] public WeaponFiredEvent weaponFiredEvent;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -50,8 +55,10 @@ public class Player : MonoBehaviour
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        fireWeaponEvent = GetComponent<FireWeaponEvent>();
         idleEvent = GetComponent<IdleEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
+        weaponFiredEvent = GetComponent<WeaponFiredEvent>();
         setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
         setActiveWeapon = GetComponent<SetActiveWeapon>();
     }
