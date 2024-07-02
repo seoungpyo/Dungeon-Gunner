@@ -52,7 +52,7 @@ public static class HelperUtilitie
     /// <returns></returns>
     public static Vector3 GetDirectionVectorFromAngle(float angle)
     {
-        Vector3 directionVector = new Vector3((Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
+        Vector3 directionVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
         return directionVector;
     }
 

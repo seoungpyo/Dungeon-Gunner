@@ -156,7 +156,7 @@ public class Ammo : MonoBehaviour, IFireable
         fireDirectionAngle += spreadToggle * randomSpread;
 
         // Set ammo rotatipon
-        transform.eulerAngles = new Vector3(0, 0, fireDirectionAngle);
+        transform.eulerAngles = new Vector3(0f, 0f, fireDirectionAngle);
 
         // set ammo fire direction
         fireDirectionVector = HelperUtilitie.GetDirectionVectorFromAngle(fireDirectionAngle);
