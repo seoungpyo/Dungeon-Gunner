@@ -84,7 +84,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         //Dungeon create test code later will delete
         #region Dungeon create test code 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             gameState = GameState.gameStarted;
         }
