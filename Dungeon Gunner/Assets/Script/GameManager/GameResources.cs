@@ -48,6 +48,12 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
     public Shader variableLitShader;
 
+    #region Header UI
+    [Space(10)]
+    [Header("UI")]
+    #endregion Header UI
+    public GameObject ammoIconPrefab;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -57,6 +63,7 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 #endif
     #endregion Validation
