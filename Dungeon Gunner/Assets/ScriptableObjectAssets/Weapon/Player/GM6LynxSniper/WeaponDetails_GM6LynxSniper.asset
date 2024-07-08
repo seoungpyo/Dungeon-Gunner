@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9754501569ac2e49b895f93fc5fc3d5, type: 3}
-  m_Name: WeaponDetails_Pistol
+  m_Name: WeaponDetails_GM6LynxSniper
   m_EditorClassIdentifier: 
-  weaponName: Pistol
-  weaponSprite: {fileID: 21300000, guid: abbe40c4d6a803f42a7c4f53404a484d, type: 3}
-  weaponShootPosition: {x: 1.15, y: 0.277, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: ae5d9e8eba895264aa69f0c205b3d351, type: 2}
-  hasInfiniteAmmo: 1
+  weaponName: GM6 Lynx Sniper
+  weaponSprite: {fileID: 21300000, guid: 7e70ae1621ea16746be436ae77e38ce9, type: 3}
+  weaponShootPosition: {x: 1.678, y: 0.234, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 5e08134c82f134a4880fa06fc690a385, type: 2}
+  hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
-  weaponClipAmmoCapacity: 10
-  weaponAmmoCapacity: 100
-  weaponFireRate: 0.25
+  weaponClipAmmoCapacity: 4
+  weaponAmmoCapacity: 30
+  weaponFireRate: 0.4
   weaponPrechargeTime: 0
-  weaponReloadTime: 1.2
+  weaponReloadTime: 2
