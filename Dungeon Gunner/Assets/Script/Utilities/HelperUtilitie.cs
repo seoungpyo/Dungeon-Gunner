@@ -95,7 +95,19 @@ public static class HelperUtilitie
         }
 
         return aimDirection;
+    }
 
+    /// <summary>
+    /// Convert the linear volume scale to decibels
+    /// </summary>
+    /// <param name="linear"></param>
+    /// <returns></returns>
+    public static float LinearToDecibels(int linear)
+    {
+        float linearScaleRange = 20f;
+
+        // formula to convert from the linear scale to the logarithmic decibel scale
+        return Mathf.Log10((float)linear / linearScaleRange) * 20f;
     }
 
     /// <summary>

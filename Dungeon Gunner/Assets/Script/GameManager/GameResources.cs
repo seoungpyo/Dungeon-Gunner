@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class GameResources : MonoBehaviour
     #endregion Tooltip
     public CurrentPlayerSO currentPlayer;
 
+    #region Header SOUNDS
+    [Space(10)]
+    [Header("SOUNDS")]
+    #endregion Header SOUNDS
+    public AudioMixerGroup soundsMasterMixerGroup;
+
     #region Header MATERIALS
     [Space(10)]
     [Header("MATERIALS")]
@@ -60,6 +67,7 @@ public class GameResources : MonoBehaviour
     {
         HelperUtilitie.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
