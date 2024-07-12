@@ -15,7 +15,6 @@ public class SoundEffectManager : SingletonMonobehaviour<SoundEffectManager>
     public void PlaySoundEffect(SoundEffectSO soundEffect)
     {
         SoundEffect sound = (SoundEffect)PoolManager.Instance.ReuseComponent(soundEffect.soundPrefab, Vector3.zero, Quaternion.identity);
-
         sound.SetSound(soundEffect);
         sound.gameObject.SetActive(true);
         StartCoroutine(DisableSound(sound, soundEffect.soundEffectClip.length));
@@ -31,13 +30,13 @@ public class SoundEffectManager : SingletonMonobehaviour<SoundEffectManager>
     {
         float muteDecibels = -80f;
 
-        if(soundsVolume == 0)
+        if (soundsVolume == 0)
         {
-            GameResources.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundVolume", muteDecibels);
+            GameResources.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundsVolume", muteDecibels);
         }
         else
         {
-            GameResources.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundVolume", HelperUtilitie.LinearToDecibels(soundsVolume));
+            GameResources.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundsVolume", HelperUtilitie.LinearToDecibels(soundsVolume));
         }
     }
 }
