@@ -148,6 +148,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         return player;
     }
 
+    public Sprite GetPlayerMiniMapIcon()
+    {
+        return playerDetails.playerMiniMapIcon;
+    }
+
     /// <summary>
     /// Get the current room the player is in
     /// </summary>
