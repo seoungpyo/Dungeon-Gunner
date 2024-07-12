@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5137794072168987340}
   - component: {fileID: 5385049911066428720}
   - component: {fileID: -2380682206532269248}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DoorEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
