@@ -20,6 +20,7 @@ public class WeaponDetailsSO : ScriptableObject
     #endregion Header WEAPON CONFIGURATION
     public Vector3 weaponShootPosition;
     public AmmoDetailsSO weaponCurrentAmmo;
+    public WeaponShootEffectSO weaponShootEffect;
     public SoundEffectSO weaponFiringSoundEffect;
     public SoundEffectSO weaponReloadingSoundEffect;
 
