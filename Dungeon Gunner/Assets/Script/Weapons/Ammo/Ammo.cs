@@ -53,6 +53,8 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AmmoHitEffect();
+
         DisableAmmo();
     }
 
@@ -165,9 +167,27 @@ public class Ammo : MonoBehaviour, IFireable
     /// <summary>
     /// Disable the ammo - thus returning it to the object pool
     /// </summary>
-    public void DisableAmmo()
+    private void DisableAmmo()
     {
         gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Display the ammo hit effect
+    /// </summary>
+    private void AmmoHitEffect()
+    {
+        if(ammoDetails.ammoHitEffect != null && ammoDetails.ammoHitEffect.ammoHitEffectPrefab != null)
+        {
+            // get ammo hit effect gameobject from the pool
+            AmmoHitEffect ammoHitEffect = (AmmoHitEffect)PoolManager.Instance.ReuseComponent(ammoDetails.ammoHitEffect.ammoHitEffectPrefab,
+                transform.position, Quaternion.identity);
+
+            // set hit effect
+            ammoHitEffect.SetHitEffet(ammoDetails.ammoHitEffect);
+
+            ammoHitEffect.gameObject.SetActive(true);
+        }
     }
 
     public void SetAmmoMaterial(Material material)
