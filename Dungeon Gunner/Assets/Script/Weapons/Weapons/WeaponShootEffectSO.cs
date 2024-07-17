@@ -29,7 +29,7 @@ public class WeaponShootEffectSO : ScriptableObject
         HelperUtilitie.ValidateCheckPositiveValue(this, nameof(startParticleSize), startParticleSize, false);
         HelperUtilitie.ValidateCheckPositiveValue(this, nameof(startParticleSpeed), startParticleSpeed, false);
         HelperUtilitie.ValidateCheckPositiveValue(this, nameof(maxParticleNumber), maxParticleNumber, false);
-        HelperUtilitie.ValidateCheckPositiveValue(this, nameof(emissionRate), emissionRate, false);
+        HelperUtilitie.ValidateCheckPositiveValue(this, nameof(emissionRate), emissionRate, true);
         HelperUtilitie.ValidateCheckPositiveValue(this, nameof(burstParticleNumber), burstParticleNumber, false);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(weaponShootEffectPrefab), weaponShootEffectPrefab);
 

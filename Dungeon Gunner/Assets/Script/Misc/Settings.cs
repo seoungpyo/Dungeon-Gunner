@@ -54,6 +54,11 @@ public static class Settings
     // else the weapon aim angle will be used (calculated from the weapon shoot position).
     #endregion FIRING CONTROL
 
+    #region ASTAR PATHFINDING PARAMETERS
+    public const int defaultAStarMovementPenalty = 40;
+    public const int preferredPathAStarMovementPenalty = 1;
+    #endregion ASTAR PATHFINDING PARAMETERS
+
     #region UI PARAMETERS
     public const float uiAmmoIconSpacing = 4f;
     #endregion UI PARAMETERS

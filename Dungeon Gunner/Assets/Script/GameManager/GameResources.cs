@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Tilemaps;
 
 public class GameResources : MonoBehaviour
 {
@@ -54,6 +55,13 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
     public Shader variableLitShader;
 
+    #region Header SPECIAL TILEMAP TILES
+    [Space(10)]
+    [Header("SPECIAL TILEMAP TILES")]
+    #endregion Header SPECIAL TILEMAP TILES
+    public TileBase[] enemyUnwalkableCollisionTilesArray;
+    public TileBase preferredEnemyPathTile;
+
     #region Header UI
     [Space(10)]
     [Header("UI")]
@@ -70,6 +78,8 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
+        HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
