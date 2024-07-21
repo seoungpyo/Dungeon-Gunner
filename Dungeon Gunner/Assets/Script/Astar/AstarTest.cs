@@ -54,7 +54,6 @@ public class AstarTest : MonoBehaviour
             pathTilemap.GetComponent<TilemapRenderer>().sortingOrder = 2;
             pathTilemap.GetComponent<TilemapRenderer>().material = GameResources.Instance.litMaterial;
             pathTilemap.gameObject.tag = "Untagged";
-            Debug.Log(pathTilemap);
         }
         else
         {

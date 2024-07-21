@@ -11,6 +11,7 @@ public class EnemyDetailsSO : ScriptableObject
     #endregion Header BASE ENEMY DETAILS
     public string enemyName;
     public GameObject enemyPrefab;
+    public float chaseDistance = 50f;
 
     #region Validation
 #if UNITY_EDITOR
@@ -18,6 +19,7 @@ public class EnemyDetailsSO : ScriptableObject
     {
         HelperUtilitie.ValidateCheckEmptyString(this, nameof(enemyName), enemyName);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
+        HelperUtilitie.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance,false);
     }
 #endif
     #endregion Validation
