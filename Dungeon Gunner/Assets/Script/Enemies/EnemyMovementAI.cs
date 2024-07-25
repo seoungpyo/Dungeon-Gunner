@@ -14,6 +14,7 @@ public class EnemyMovementAI : MonoBehaviour
     private float currentEnemyPathRebuildCooldown;
     private WaitForFixedUpdate waitForFixedUpdate;
     [HideInInspector] public float moveSpeed;
+    [HideInInspector] public int updateFrameNumber = 1; // default value
     private bool chasePlayer = false;
 
     private void Awake()
@@ -49,6 +50,9 @@ public class EnemyMovementAI : MonoBehaviour
         }
 
         if (!chasePlayer) return;
+
+        // only process a star path rebuild on certain frames to spread the load between enemies
+        if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) return;
 
         if(currentEnemyPathRebuildCooldown <=0f || Vector3.Distance(playerReferencePosition, GameManager.Instance.GetPlayer().GetPlayerPosition()) >
             Settings.playerMoveDistanceToRebuildPath)
@@ -114,6 +118,15 @@ public class EnemyMovementAI : MonoBehaviour
         {
             enemy.idleEvent.CallIdleEvent();
         }
+    }
+
+    /// <summary>
+    /// Set the frame number that the enemy path will be recalculated on - to avoid performance spikes
+    /// </summary>
+    /// <param name="updateFrameNumber"></param>
+    public void SetUpdateFrameNumber(int updateFrameNumber)
+    {
+        this.updateFrameNumber = updateFrameNumber;
     }
 
     /// <summary>

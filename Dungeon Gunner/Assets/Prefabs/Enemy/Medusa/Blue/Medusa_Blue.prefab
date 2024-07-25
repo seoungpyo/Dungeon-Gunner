@@ -140,6 +140,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 19b6ff9fbadc74e479b63068d33eb245, type: 2}
+    - target: {fileID: 4758654611477542051, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 44396ffdc96b4d04093c6e56144648dd, type: 2}
+    - target: {fileID: 5633486009562639581, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: ddd5862747bd7294ea2f4fc6b22b5eb3, type: 2}
     - target: {fileID: 7944437625729450227, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
       propertyPath: m_Sprite
       value: 

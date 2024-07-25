@@ -24,11 +24,11 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public IdleEvent idleEvent;
-
-    public EnemyDetailsSO enemyDetails;
+    [HideInInspector] public EnemyDetailsSO enemyDetails;
 
     private CircleCollider2D circleCollider2D;
     private PolygonCollider2D polygonCollider2D;
+    private EnemyMovementAI enemyMovementAI;
 
     private void Awake()
     {
@@ -39,5 +39,32 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         idleEvent = GetComponent<IdleEvent>();
+        enemyMovementAI = GetComponent<EnemyMovementAI>();
+    }
+
+    public void EnemyInitialization(EnemyDetailsSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
+    {
+        this.enemyDetails = enemyDetails;
+
+        SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+        SetEnemyAnimationSpeed();
+    }
+
+    /// <summary>
+    /// Set enemy movement update frame
+    /// </summary>
+    /// <param name="enemySpawnNumber"></param>
+    private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
+    {
+        enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver);
+    }
+
+    /// <summary>
+    /// Set enemy animator speed to match movement speed
+    /// </summary>
+    private void SetEnemyAnimationSpeed()
+    {
+        animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimation;
     }
 }

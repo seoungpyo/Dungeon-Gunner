@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f06d46a545c60419b235fd47d52f9e, type: 3}
-  m_Name: MovementDetails__SlimeBlockKing_Blue_MP7
+  m_Script: {fileID: 11500000, guid: ea4e8e8ae82d0e148aa357d9a2d09485, type: 3}
+  m_Name: DungeonLevel_Level6
   m_EditorClassIdentifier: 
-  minMoveSpeed: 1
-  maxMoveSpeed: 2
-  rollSpeed: 0
-  rollDistance: 0
-  rollCooldownTime: 0
+  levelName: 
+  roomTemplateList: []
+  roomNodeGraphList: []

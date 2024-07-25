@@ -148,6 +148,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4758654611477542051, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c83ca3ce12e5014ea10c14e60cd5a9d, type: 2}
+    - target: {fileID: 5633486009562639581, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: f5131232016be734685f228b39eda5d2, type: 2}
     - target: {fileID: 7922762720410102173, guid: 2d3b966e6d9d9424bbca588b55155625, type: 3}
       propertyPath: m_Size.x
       value: 0.25

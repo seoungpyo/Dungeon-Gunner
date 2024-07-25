@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7f06d46a545c60419b235fd47d52f9e, type: 3}
-  m_Name: MovementDetails__SlimeBlockKing_Green_Shotgun
+  m_Name: MovementDetails_SlimeBlockKing_Green_Shotgun
   m_EditorClassIdentifier: 
   minMoveSpeed: 2
   maxMoveSpeed: 3
