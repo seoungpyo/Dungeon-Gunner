@@ -13,6 +13,33 @@ public class EnemyDetailsSO : ScriptableObject
     public GameObject enemyPrefab;
     public float chaseDistance = 50f;
 
+    #region Header ENEMY MATERIAL
+    [Space(10)]
+    [Header("ENEMY MATERIAL")]
+    #endregion Header ENEMY MATERIAL
+    public Material enemyStandardMaterial;
+
+    #region Header ENEMY MATERIAL SETTINGS
+    [Space(10)]
+    [Header("ENEMY MATERIAL SETTINGS")]
+    #endregion Header ENEMY MATERIAL SETTINGS
+    public float enemyMaterializeTime;
+    public Shader enemyMaterializeShader;
+    [ColorUsage(true, true)]
+    public Color enemyMaterializeColor;
+
+    #region Header ENEMY WEAPON SETTINGS
+    [Space(10)]
+    [Header("ENEMY WEAPON SETTINGS")]
+    #endregion Header ENEMY WEAPON SETTINGS
+    public WeaponDetailsSO enemyWeapon;
+    public float firingIntervalMin = 0.1f;
+    public float firingIntervalMax = 1f;
+    public float firingDurationMin = 1f;
+    public float firingDurationMax = 2f;
+    public bool firingLineOfSinghtRequried;
+
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -20,6 +47,12 @@ public class EnemyDetailsSO : ScriptableObject
         HelperUtilitie.ValidateCheckEmptyString(this, nameof(enemyName), enemyName);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
         HelperUtilitie.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance,false);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
+        HelperUtilitie.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
+        HelperUtilitie.ValidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax),firingIntervalMax, false);
+        HelperUtilitie.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
+
     }
 #endif
     #endregion Validation

@@ -19,6 +19,8 @@ public class AnimateEnemy : MonoBehaviour
         enemy.movementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
 
         enemy.idleEvent.OnIdle += IdleEvent_OnIdle;
+
+        enemy.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
     }
 
     private void OnDisable()
@@ -27,22 +29,16 @@ public class AnimateEnemy : MonoBehaviour
             enemy.movementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
 
             enemy.idleEvent.OnIdle -= IdleEvent_OnIdle;
+
+            enemy.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
         }
     }
 
     private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, MovementToPositionArgs movementToPositionArgs)
     {
-        if(enemy.transform.position.x < GameManager.Instance.GetPlayer().transform.position.x)
-        {
-            SetAnimWeaponAnimationParameters(AimDirection.Right);
-        }
-        else
-        {
-            SetAnimWeaponAnimationParameters(AimDirection.Left);
-        }
 
         SetMovementAnimationParameters();
-        
+   
     }
 
     private void IdleEvent_OnIdle(IdleEvent idleEvent)
@@ -60,6 +56,12 @@ public class AnimateEnemy : MonoBehaviour
         enemy.animator.SetBool(Settings.aimDown, false);
     }
 
+    private void AimWeaponEvent_OnWeaponAim(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs aimWeaponEventArgs)
+    {
+        InitialiseAimAnimationParameters();
+        SetAimWeaponAnimationParameters(aimWeaponEventArgs.aimDirection);
+    }
+
     private void SetMovementAnimationParameters()
     {
         enemy.animator.SetBool(Settings.isIdle, false);
@@ -73,7 +75,7 @@ public class AnimateEnemy : MonoBehaviour
         enemy.animator.SetBool(Settings.isIdle, true);
     }
 
-    private void SetAnimWeaponAnimationParameters(AimDirection aimDirection)
+    private void SetAimWeaponAnimationParameters(AimDirection aimDirection)
     {
         InitialiseAimAnimationParameters();
 
