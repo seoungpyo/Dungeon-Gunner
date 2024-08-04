@@ -19,7 +19,7 @@ public static class Settings
     public const int maxChildCorridors = 3;
     //Max number of child corridors leading from a room - maximum should be 3 although this is not recommended
     //since it can cause the dungeon building to fail since the room are more likely to not fit together
-
+    public const float doorUnlockDelay = 1f;
     #endregion Room SETTINGS
 
     #region ANIMATION PARAMETERS
@@ -63,7 +63,12 @@ public static class Settings
     public const float enemyPathRebuildCooldown = 2f;
     #endregion ASTAR PATHFINDING PARAMETERS
 
+    #region ENEMY PARAMETERS
+    public const int defaultEnemyHealth = 20;
+    #endregion ENEMY PARAMETERS
+
     #region UI PARAMETERS
+    public const float uiHeartSpacing = 16f;
     public const float uiAmmoIconSpacing = 4f;
     #endregion UI PARAMETERS
 }

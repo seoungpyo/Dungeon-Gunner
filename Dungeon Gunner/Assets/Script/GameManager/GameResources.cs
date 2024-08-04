@@ -67,6 +67,7 @@ public class GameResources : MonoBehaviour
     [Header("UI")]
     #endregion Header UI
     public GameObject ammoIconPrefab;
+    public GameObject heartPrefab;
 
     #region Validation
 #if UNITY_EDITOR

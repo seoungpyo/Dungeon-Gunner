@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -335,6 +337,11 @@ public class InstantiatedRoom : MonoBehaviour
         boxCollider2D.enabled = false;
     }
     
+    public void EnableRoomCollider()
+    {
+        boxCollider2D.enabled = true;
+    }
+
     /// <summary>
     /// Lock the room door
     /// </summary>
@@ -350,4 +357,25 @@ public class InstantiatedRoom : MonoBehaviour
         DisableRoomCollider();
     }
 
+    public void UnLockDoors(float doorUnLockDelay)
+    {
+        StartCoroutine(UnLockDoorsRoutine(doorUnLockDelay));
+    }
+
+    private IEnumerator UnLockDoorsRoutine(float doorUnLockDelay)
+    {
+        if (doorUnLockDelay > 0F)
+        {
+            yield return new WaitForSeconds(doorUnLockDelay);
+        }
+
+        Door[] doorArray = GetComponentsInChildren<Door>();
+
+        foreach(Door door in doorArray)
+        {
+            door.UnlockDoor();
+        }
+
+        EnableRoomCollider();
+    }
 }
