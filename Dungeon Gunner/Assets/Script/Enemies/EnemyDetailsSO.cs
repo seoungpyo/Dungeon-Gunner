@@ -37,7 +37,7 @@ public class EnemyDetailsSO : ScriptableObject
     public float firingIntervalMax = 1f;
     public float firingDurationMin = 1f;
     public float firingDurationMax = 2f;
-    public bool firingLineOfSinghtRequried;
+    public bool firingLineOfSightRequried;
 
 
     #region Validation

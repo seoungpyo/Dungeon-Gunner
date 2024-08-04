@@ -54,7 +54,7 @@ public class EnemyWeaponAI : MonoBehaviour
 
     private float WeaponShootDuration()
     {
-        return Random.Range(enemyDetails.firingIntervalMin, enemyDetails.firingDurationMax);
+        return Random.Range(enemyDetails.firingIntervalMin, enemyDetails.firingIntervalMax);
     }
 
     private void FireWeapon()
@@ -77,7 +77,7 @@ public class EnemyWeaponAI : MonoBehaviour
 
             if(playerDirectionVector.magnitude <= enemyAmmoRange)
             {
-                if (enemyDetails.firingLineOfSinghtRequried && !IsPlayerInLineOfSight(weaponDirection, enemyAmmoRange)) return;
+                if (enemyDetails.firingLineOfSightRequried && !IsPlayerInLineOfSight(weaponDirection, enemyAmmoRange)) return;
 
                 enemy.fireWeaponEvent.CallFireWeaponEvent(true, true, enemyAimDirection, enemyAngleDegrees, weaponAngleDegrees, weaponDirection);
             }

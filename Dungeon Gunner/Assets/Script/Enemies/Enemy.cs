@@ -102,6 +102,8 @@ public class Enemy : MonoBehaviour
         {
             Weapon weapon = new Weapon() { weaponDetails = enemyDetails.enemyWeapon, weaponReloadTimer = 0f, weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity, 
                 weaponRemainingAmmo= enemyDetails.enemyWeapon.weaponAmmoCapacity, isWeaponReloading = false };
+
+            setActiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
         }
     }
 
@@ -109,7 +111,6 @@ public class Enemy : MonoBehaviour
     {
         EnemyEnable(false);
 
-        Debug.Log(enemyDetails.enemyMaterializeShader);
         yield return StartCoroutine(materializeEffect.MaterializeRoutine(enemyDetails.enemyMaterializeShader, enemyDetails.enemyMaterializeColor, enemyDetails.enemyMaterializeTime,
             spriteRendererArray, enemyDetails.enemyStandardMaterial));
 
