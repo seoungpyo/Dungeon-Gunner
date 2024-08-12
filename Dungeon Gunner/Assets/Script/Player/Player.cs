@@ -33,6 +33,8 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(BoxCollider2D))] // define collider for interacting with the dungeon map.
 [RequireComponent(typeof(PolygonCollider2D))] // define collider for interacting with enemy attacks.
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ReceiveContactDamage))]
+[RequireComponent(typeof(DealContactDamage))]
 [DisallowMultipleComponent] // exit component only one.
 #endregion REQUIRE COMPONENTS
 
@@ -110,7 +112,7 @@ public class Player : MonoBehaviour
 
         if(healthEventArgs.healthAmount <= 0f)
         {
-            destroyedEvent.CallDestroyedEvent(true);
+            destroyedEvent.CallDestroyedEvent(true, 0);
         }
     }
 

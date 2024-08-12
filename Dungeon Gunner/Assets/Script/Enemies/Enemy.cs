@@ -32,6 +32,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(HealthEvent))]
 [RequireComponent(typeof(DestroyedEvent))]
 [RequireComponent(typeof(Destroyed))]
+[RequireComponent(typeof(DealContactDamage))]
 #endregion REQUIRE COMPONETS
 
 [DisallowMultipleComponent]
@@ -96,7 +97,7 @@ public class Enemy : MonoBehaviour
     private void EnemyDestroyed()
     {
         DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
-        destroyedEvent.CallDestroyedEvent(false);
+        destroyedEvent.CallDestroyedEvent(false, health.GetStartingHealth());
     }
 
     public void EnemyInitialization(EnemyDetailsSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
