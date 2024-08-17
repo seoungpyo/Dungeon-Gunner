@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_SlimeBlockKing_Red_Pistsol
   m_EditorClassIdentifier: 
   enemyName: Slime Block King
-  enemyPrefab: {fileID: 6353883029085738341, guid: eddc13bfec0ef4e4a8dbd53711e384d4, type: 3}
+  enemyPrefab: {fileID: 4121258152599800093, guid: 52cd9ecc9fc182f46bbd093ff54d4b9a, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   enemyMaterializeTime: 2
