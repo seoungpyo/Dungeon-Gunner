@@ -52,7 +52,7 @@ public class RoomNodeGraphSO : ScriptableObject
     /// <returns></returns>
     public IEnumerable<RoomNodeSO> GetChildRoomNode(RoomNodeSO parentRoomNode)
     {
-        foreach(string childNodeID in parentRoomNode.childRoomNodeIDList)
+        foreach (string childNodeID in parentRoomNode.childRoomNodeIDList)
         {
             yield return GetRoomNode(childNodeID);
         }

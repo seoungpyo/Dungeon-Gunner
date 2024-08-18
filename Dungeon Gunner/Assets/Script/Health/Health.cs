@@ -6,6 +6,12 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Health : MonoBehaviour
 {
+    #region Header References
+    [Space(10)]
+    [Header("References")]
+    #endregion Header References
+    [SerializeField] private HealthBar healthBar;
+
     private int startingHealth;
     private int currentHealth;
     private HealthEvent healthEvent;
@@ -47,6 +53,15 @@ public class Health : MonoBehaviour
             immunityTime = enemy.enemyDetails.hitImmunityTime;
             spriteRenderer = enemy.spriteRendererArray[0];
         }
+
+        if(enemy!=null && enemy.enemyDetails.isHealthBarDisplayed == true && healthBar != null)
+        {
+            healthBar.EnableHealthBar();
+        }
+        else if(healthBar != null)
+        {
+            healthBar.DisableHealthBar();
+        }
     }
 
     public void TakeDamage(int damageAmount)
@@ -66,14 +81,9 @@ public class Health : MonoBehaviour
             PostHitImmunity();
         }
 
-        if(isDamageable && isRolling)
+        if(healthBar != null)
         {
-            Debug.Log("Dodged Bullet By Rolling");
-        }
-
-        if(!isDamageable && !isRolling)
-        {
-            Debug.Log("Avoided Damage Due To Immunity");
+            healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
         }
     }
 

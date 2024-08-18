@@ -23,7 +23,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 352
+    x: 351
     y: 652.2
     width: 160
     height: 75
@@ -52,7 +52,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 728
+    x: 727
     y: 451.2
     width: 160
     height: 75
@@ -79,7 +79,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 899
+    x: 898
     y: 546.2
     width: 160
     height: 75
@@ -107,7 +107,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 345
+    x: 344
     y: 163.2
     width: 160
     height: 75
@@ -135,7 +135,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 1097
+    x: 1096
     y: 166.2
     width: 160
     height: 75
@@ -163,7 +163,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 350
+    x: 349
     y: 453.2
     width: 160
     height: 75
@@ -190,7 +190,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 348
+    x: 347
     y: 81.2
     width: 160
     height: 75
@@ -218,7 +218,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 346
+    x: 345
     y: 356.2
     width: 160
     height: 75
@@ -246,7 +246,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 545
+    x: 544
     y: 254.20001
     width: 160
     height: 75
@@ -309,7 +309,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 1100
+    x: 1099
     y: 252.20001
     width: 160
     height: 75
@@ -337,7 +337,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 731
+    x: 730
     y: 548.2
     width: 160
     height: 75
@@ -366,7 +366,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 727
+    x: 726
     y: 251.20001
     width: 160
     height: 75
@@ -393,7 +393,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 1096
+    x: 1095
     y: 77.2
     width: 160
     height: 75
@@ -421,7 +421,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 898
+    x: 897
     y: 451.2
     width: 160
     height: 75
@@ -449,7 +449,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 728
+    x: 727
     y: 347.2
     width: 160
     height: 75
@@ -478,7 +478,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 346
+    x: 345
     y: 253
     width: 160
     height: 75
@@ -505,7 +505,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 1071
+    x: 1070
     y: 450.2
     width: 160
     height: 75
@@ -533,7 +533,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 906
+    x: 905
     y: 251.20001
     width: 160
     height: 75
@@ -561,7 +561,7 @@ MonoBehaviour:
   isSelected: 0
   rect:
     serializedVersion: 2
-    x: 353
+    x: 352
     y: 549.2
     width: 160
     height: 75
