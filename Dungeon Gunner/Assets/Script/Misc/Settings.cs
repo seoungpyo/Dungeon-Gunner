@@ -42,6 +42,10 @@ public static class Settings
 
     // animator parameters - door
     public static int open = Animator.StringToHash("open");
+
+    // animator parameters - damageableDecoration
+    public static int destroy = Animator.StringToHash("destroy");
+    public static string stateDestroyed = "Destroyed";
     #endregion ANIMATION PARAMETERS
 
     #region GAMEOBJECT TAGS
