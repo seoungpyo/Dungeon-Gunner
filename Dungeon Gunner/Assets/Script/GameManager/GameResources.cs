@@ -43,6 +43,7 @@ public class GameResources : MonoBehaviour
     #endregion Header SOUNDS
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;
+    public SoundEffectSO tableFlip;
 
     #region Header MATERIALS
     [Space(10)]
@@ -77,11 +78,13 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(tableFlip), tableFlip);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
         HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 #endif
