@@ -32682,6 +32682,7 @@ Transform:
   m_Children:
   - {fileID: 4603254633577131567}
   - {fileID: 4641884735082720320}
+  - {fileID: 8810869687820625502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1462120759972737929
@@ -32751,6 +32752,7 @@ MonoBehaviour:
   roomColliderBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  moveableItemsList: []
   environmentGameObject: {fileID: 2317068385254769796}
 --- !u!114 &-6892565739009363608
 MonoBehaviour:
@@ -102671,6 +102673,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4340945209892498374, guid: 3bee40f4ab287a2449bef033baeaee23, type: 3}
   m_PrefabInstance: {fileID: 5149191802108117900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5606263611050007155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8227588318318580144}
+    m_Modifications:
+    - target: {fileID: 608940598766753579, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_Name
+      value: ChestSpawner_EnamiesDefeated_BossRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.980693
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.91442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+--- !u!4 &8810869687820625502 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4002306169797065773, guid: 3ce4a074bbed717459bd6e4b6f3d7578, type: 3}
+  m_PrefabInstance: {fileID: 5606263611050007155}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5701067694736169431
 PrefabInstance:

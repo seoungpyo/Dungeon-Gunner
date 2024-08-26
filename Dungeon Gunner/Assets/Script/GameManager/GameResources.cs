@@ -44,6 +44,10 @@ public class GameResources : MonoBehaviour
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;
     public SoundEffectSO tableFlip;
+    public SoundEffectSO chestOpen;
+    public SoundEffectSO healthPickUp;
+    public SoundEffectSO weaponPickUp;
+    public SoundEffectSO ammoPickUp;
 
     #region Header MATERIALS
     [Space(10)]
@@ -55,6 +59,7 @@ public class GameResources : MonoBehaviour
     public Material dimmendMaterial;
     public Material litMaterial;
     public Shader variableLitShader;
+    public Shader materializeShader;
 
     #region Header SPECIAL TILEMAP TILES
     [Space(10)]
@@ -70,6 +75,14 @@ public class GameResources : MonoBehaviour
     public GameObject ammoIconPrefab;
     public GameObject heartPrefab;
 
+    #region Header CHESTS
+    [Space(10)]
+    [Header("CHESTS")]
+    #endregion Header CHESTS
+    public GameObject chestItemPrefab;
+    public Sprite heartIcon;
+    public Sprite bulletIcon;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -79,13 +92,21 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(tableFlip), tableFlip);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(chestOpen), chestOpen);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(healthPickUp), healthPickUp);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoPickUp), ammoPickUp);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(weaponPickUp), weaponPickUp);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(materializeShader), materializeShader);
         HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(chestItemPrefab), chestItemPrefab);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(heartIcon), heartIcon);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(bulletIcon), bulletIcon);
     }
 #endif
     #endregion Validation
