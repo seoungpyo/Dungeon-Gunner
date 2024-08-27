@@ -44,6 +44,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
+    private bool isFading = false;
 
     protected override void Awake()
     {
@@ -159,6 +160,24 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
                 break;
 
+            case GameState.playingLevel:
+
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
+
+                break;
+
+            case GameState.dungeonOverviewMap:
+
+                if (Input.GetKeyUp(KeyCode.Tab))
+                {
+                    DungeonMap.Instance.ClearDungeonOverViewMap();
+                }
+
+                break;
+
             case GameState.levelCompleted:
 
                 StartCoroutine(LevelComplated());
@@ -237,6 +256,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
             StartCoroutine(BossStage());
         }
+    }
+
+    /// <summary>
+    /// Dungeon Map Screen Display
+    /// </summary>
+    private void DisplayDungeonOverviewMap()
+    {
+        if (isFading) return;
+
+        DungeonMap.Instance.DisplayDungeonOverViewMap();
     }
 
     private void PlayDungeonLevel(int currentDungeonLevelListIndex)
@@ -356,8 +385,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
 
-    private IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
+    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
+        isFading = true;
+
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backgroundColor;
 
@@ -369,6 +400,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time/fadeSeconds);
             yield return null;
         }
+
+        isFading = false;
     }
 
     private IEnumerator GameWon()

@@ -273,6 +273,34 @@ public static class HelperUtilitie
     }
 
     /// <summary>
+    /// positive range debug check - set isZeroAllowed to true if the min and ma range values can both be zero. Return true if there is an error
+    /// </summary>
+    /// <param name="thisObject"></param>
+    /// <param name="fieldNameMinimum"></param>
+    /// <param name="valueToCheckMinimum"></param>
+    /// <param name="fieldNameMaximum"></param>
+    /// <param name="valueToCheckMaximum"></param>
+    /// <param name="isZeroAllowed"></param>
+    /// <returns></returns>
+    public static bool ValidateCheckPositiveRange(Object thisObject, string fieldNameMinimum, int valueToCheckMinimum, string fieldNameMaximum,
+       int valueToCheckMaximum, bool isZeroAllowed)
+    {
+        bool error = false;
+        if (valueToCheckMinimum > valueToCheckMaximum)
+        {
+            Debug.Log(fieldNameMinimum + " must be less than or equal to " + fieldNameMaximum + " in object " + thisObject.name.ToString());
+            error = true;
+
+        }
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMinimum, valueToCheckMinimum, isZeroAllowed)) error = true;
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed)) error = true;
+
+        return error;
+    }
+
+    /// <summary>
     /// Get the nearest spawn position to the player
     /// </summary>
     /// <param name="playerPosition"></param>

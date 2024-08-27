@@ -83,6 +83,12 @@ public class GameResources : MonoBehaviour
     public Sprite heartIcon;
     public Sprite bulletIcon;
 
+    #region Header MINIMAP
+    [Space(10)]
+    [Header("MINIMAP")]
+    #endregion Header MINIMAP
+    public GameObject minimapSkullPrefab;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -107,6 +113,7 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(chestItemPrefab), chestItemPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(heartIcon), heartIcon);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(bulletIcon), bulletIcon);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(minimapSkullPrefab), minimapSkullPrefab);
     }
 #endif
     #endregion Validation
