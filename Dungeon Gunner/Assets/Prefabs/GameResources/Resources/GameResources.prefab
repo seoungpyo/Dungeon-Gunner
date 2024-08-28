@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNodeTypeList: {fileID: 11400000, guid: 7730bae73ffc16649a2dc3a2a73c8ac2, type: 2}
+  musicMasterMixerGroup: {fileID: -7206380732494497733, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
+  musicOnFullSnapshot: {fileID: 24500006, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
+  musicLowSnapshot: {fileID: 8893122114324796974, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
+  musicOffSnapshot: {fileID: -3084740370723268673, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   currentPlayer: {fileID: 11400000, guid: cb2867f0c2c09ac429561bbfa2c6b445, type: 2}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   doorOpenCloseSoundEffect: {fileID: 11400000, guid: 5ca1b03a05e886f49af698875ced86f6, type: 2}

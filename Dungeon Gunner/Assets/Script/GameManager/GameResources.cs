@@ -25,8 +25,16 @@ public class GameResources : MonoBehaviour
     #region Tooltip
     [Tooltip("Populate with the dungeon RoomNodeTypeListSO")]
     #endregion
-
     public RoomNodeTypeListSO roomNodeTypeList;
+
+    #region Header MUSIC
+    [Space(10)]
+    [Header("MUSIC")]
+    #endregion Header MUSIC
+    public AudioMixerGroup musicMasterMixerGroup;
+    public AudioMixerSnapshot musicOnFullSnapshot;
+    public AudioMixerSnapshot musicLowSnapshot;
+    public AudioMixerSnapshot musicOffSnapshot;
 
     #region Header Player
     [Space(10)]
@@ -107,6 +115,10 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(materializeShader), materializeShader);
         HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(musicMasterMixerGroup), musicMasterMixerGroup);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(musicOnFullSnapshot), musicOnFullSnapshot);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(musicLowSnapshot), musicLowSnapshot);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(musicOffSnapshot), musicOffSnapshot);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);

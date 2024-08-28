@@ -33,6 +33,8 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
 
         currentRoom = roomChangedEventArgs.room;
 
+        MusicManager.Instance.PlayMusic(currentRoom.ambientMusic, 0.2f, 2f);
+
         // if the room is a corridor or the entrance then return
         if(currentRoom.roomNodeType.isCorridorEw || currentRoom.roomNodeType.isCorridorNs || currentRoom.roomNodeType.isEntrance){ return;}
 
@@ -52,6 +54,9 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         }
 
         enemyMaxConcurrentSpawnNumber = GetConcurrentEnemies();
+
+        // update music for room
+        MusicManager.Instance.PlayMusic(currentRoom.battleMusic, 0.2f, 0.5f);
 
         currentRoom.instantiatedRoom.LockDoors();
 
@@ -152,6 +157,8 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
             }
 
             currentRoom.instantiatedRoom.UnLockDoors(Settings.doorUnlockDelay);
+
+            MusicManager.Instance.PlayMusic(currentRoom.ambientMusic, 0.2f, 2f);
 
             StaticEventHandler.CallRoomEnemiesDefeatedEvent(currentRoom);
         }
