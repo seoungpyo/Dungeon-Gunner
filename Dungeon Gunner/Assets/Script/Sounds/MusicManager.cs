@@ -22,7 +22,18 @@ public class MusicManager : SingletonMonobehaviour<MusicManager>
 
     private void Start()
     {
+        // check if volume levels have been saved in playerprefs - if so retrieve and set them
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            musicVolume = PlayerPrefs.GetInt("musicVolume");
+        }
+
         SetMusicVolume(musicVolume);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt("musicVolume", musicVolume);
     }
 
     public void PlayMusic(MusicTrackSO musicTrack, float fadeOutTime = Settings.musicFadeOutTime, float fadeInTime = Settings.musicFadeInTime)
@@ -79,6 +90,26 @@ public class MusicManager : SingletonMonobehaviour<MusicManager>
         GameResources.Instance.musicOnFullSnapshot.TransitionTo(fadeInTime);
 
         yield return new WaitForSeconds(fadeInTime);
+    }
+
+    public void IncreaseMusicVolume()
+    {
+        int maxMusicVolume = 20;
+
+        if (musicVolume >= maxMusicVolume) return;
+
+        musicVolume += 1;
+
+        SetMusicVolume(musicVolume);
+    }
+
+    public void DecreaseMusicVolume()
+    {
+        if (musicVolume == 0) return;
+
+        musicVolume -= 1;
+
+        SetMusicVolume(musicVolume);
     }
 
     public void SetMusicVolume(int musicVolume)

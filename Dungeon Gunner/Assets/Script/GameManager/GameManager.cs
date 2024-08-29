@@ -17,6 +17,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     #endregion Header GAMEOBJECT REPERENCES
     [SerializeField] private TextMeshProUGUI messageTextTMP;
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private GameObject pauseMenu; 
 
     #region Header Dungeon Level
     [Space(10)]
@@ -160,7 +161,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
                 break;
 
+            // with playing the level handle the tap key for the dungeon overview map.
             case GameState.playingLevel:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
 
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
@@ -169,11 +176,46 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
                 break;
 
+            // while engaging enemies handle the escape key for the pause menu
+            case GameState.engagingEnemies:
+               
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
+                break;
+
+            // if in the dungeon overview map handle the release of the tab key to clear the map
             case GameState.dungeonOverviewMap:
 
                 if (Input.GetKeyUp(KeyCode.Tab))
                 {
                     DungeonMap.Instance.ClearDungeonOverViewMap();
+                }
+
+                break;
+
+            // while playing the level and before the boss in engaged, handle the tap key for the dugeon overview mao.
+            case GameState.bossStage:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
+                if (Input.GetKeyUp(KeyCode.Tab))
+                {
+                    DungeonMap.Instance.ClearDungeonOverViewMap();
+                }
+
+                break;
+
+            case GameState.engagingBoss:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
                 }
 
                 break;
@@ -206,6 +248,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 RestartGame();
 
                 break;
+
+            // if the game is paused and the pause menu showing, then pressing escape again will clear the pause menu
+            case GameState.gamePaused:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
+                break;
+                
         }
     }
 
@@ -255,6 +308,29 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             gameState = GameState.bossStage;
 
             StartCoroutine(BossStage());
+        }
+    }
+
+    /// <summary>
+    /// Pause game menu - also called from resume game button on pause menu
+    /// </summary>
+    public void PauseGameMenu()
+    {
+        if(gameState != GameState.gamePaused)
+        {
+            pauseMenu.SetActive(true);
+            GetPlayer().playerControl.DisablePlayer();
+
+            previousGameState = gameState;
+            gameState = GameState.gamePaused;
+        }
+        else if(gameState == GameState.gamePaused)
+        {
+            pauseMenu.SetActive(false);
+            GetPlayer().playerControl.EnablePlayer();
+
+            gameState = previousGameState;
+            previousGameState = GameState.gamePaused;
         }
     }
 
@@ -496,6 +572,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(pauseMenu), pauseMenu);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(messageTextTMP), messageTextTMP);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(canvasGroup), canvasGroup);
         HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(dungeonLevelList), dungeonLevelList);
