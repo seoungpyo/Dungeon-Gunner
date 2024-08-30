@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Tilemaps;
@@ -27,6 +28,12 @@ public class GameResources : MonoBehaviour
     #endregion
     public RoomNodeTypeListSO roomNodeTypeList;
 
+    #region Header PLAYER SELECTION
+    [Space(10)]
+    [Header("PLAYER SELECTION")]
+    #endregion Header PLAYER SELECTION
+    public GameObject playerSelectionPrefab;
+
     #region Header MUSIC
     [Space(10)]
     [Header("MUSIC")]
@@ -35,6 +42,7 @@ public class GameResources : MonoBehaviour
     public AudioMixerSnapshot musicOnFullSnapshot;
     public AudioMixerSnapshot musicLowSnapshot;
     public AudioMixerSnapshot musicOffSnapshot;
+    public MusicTrackSO mainMenuMusic;
 
     #region Header Player
     [Space(10)]
@@ -44,6 +52,7 @@ public class GameResources : MonoBehaviour
     [Tooltip("The current player scriptable object - this is used to reference the current player between scenes")]
     #endregion Tooltip
     public CurrentPlayerSO currentPlayer;
+    public List<PlayerDetailsSO> playerDetailList;
 
     #region Header SOUNDS
     [Space(10)]
@@ -82,6 +91,7 @@ public class GameResources : MonoBehaviour
     #endregion Header UI
     public GameObject ammoIconPrefab;
     public GameObject heartPrefab;
+    public GameObject scorePrefab;
 
     #region Header CHESTS
     [Space(10)]
@@ -102,6 +112,8 @@ public class GameResources : MonoBehaviour
     private void OnValidate()
     {
         HelperUtilitie.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(playerSelectionPrefab), playerSelectionPrefab);
+        HelperUtilitie.ValidateCheckEnumerableValues(this, nameof(playerDetailList), playerDetailList);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
@@ -117,11 +129,13 @@ public class GameResources : MonoBehaviour
         HelperUtilitie.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(musicMasterMixerGroup), musicMasterMixerGroup);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(musicOnFullSnapshot), musicOnFullSnapshot);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(mainMenuMusic), mainMenuMusic);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(musicLowSnapshot), musicLowSnapshot);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(musicOffSnapshot), musicOffSnapshot);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
+        HelperUtilitie.ValidateCheckNullValue(this, nameof(scorePrefab), scorePrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(chestItemPrefab), chestItemPrefab);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(heartIcon), heartIcon);
         HelperUtilitie.ValidateCheckNullValue(this, nameof(bulletIcon), bulletIcon);

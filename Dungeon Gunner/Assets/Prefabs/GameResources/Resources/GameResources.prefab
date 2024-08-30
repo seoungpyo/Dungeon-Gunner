@@ -45,11 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNodeTypeList: {fileID: 11400000, guid: 7730bae73ffc16649a2dc3a2a73c8ac2, type: 2}
+  playerSelectionPrefab: {fileID: 3002576994201714086, guid: c9d157e0894f69749807fc3002649be0, type: 3}
   musicMasterMixerGroup: {fileID: -7206380732494497733, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   musicOnFullSnapshot: {fileID: 24500006, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   musicLowSnapshot: {fileID: 8893122114324796974, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   musicOffSnapshot: {fileID: -3084740370723268673, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
+  mainMenuMusic: {fileID: 11400000, guid: 5026e2789a88c714289ca20cc3349e51, type: 2}
   currentPlayer: {fileID: 11400000, guid: cb2867f0c2c09ac429561bbfa2c6b445, type: 2}
+  playerDetailList:
+  - {fileID: 11400000, guid: ff95218c7d0c38b4dad8ec8fc36b9396, type: 2}
+  - {fileID: 11400000, guid: a01771b87dd9e1a46aa05a2730f00a80, type: 2}
+  - {fileID: 11400000, guid: 606a99919d22177429beb2e0bd55c463, type: 2}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   doorOpenCloseSoundEffect: {fileID: 11400000, guid: 5ca1b03a05e886f49af698875ced86f6, type: 2}
   tableFlip: {fileID: 11400000, guid: 14215d2e83eba4f4d87c42293f9bd64a, type: 2}
@@ -67,6 +73,7 @@ MonoBehaviour:
   preferredEnemyPathTile: {fileID: 11400000, guid: 3ce5fb260af53d24887b55c3d50041e2, type: 2}
   ammoIconPrefab: {fileID: 7211660156327800149, guid: 015a8708361f6434cb810fe8bbde5b6c, type: 3}
   heartPrefab: {fileID: 2591211135916910703, guid: edcdb2be3ee045141b081c7bbb047503, type: 3}
+  scorePrefab: {fileID: 9047002283972276414, guid: eb5193ed9596a704f82a21c3df155d53, type: 3}
   chestItemPrefab: {fileID: 5069666099001851776, guid: 1c237658b65aa264b8df0cef6ded4702, type: 3}
   heartIcon: {fileID: 21300000, guid: 93356131eec0f44458223985928ac6e3, type: 3}
   bulletIcon: {fileID: 21300000, guid: a2482871b46d396438236c07b6402283, type: 3}
