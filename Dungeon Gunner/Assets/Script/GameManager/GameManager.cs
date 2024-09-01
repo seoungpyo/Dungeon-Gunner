@@ -134,13 +134,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         HandleGameState();
 
-        //Dungeon create test code later will delete
+        //Dungeon create test code
         #region Dungeon create test code 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.P))
         {
             gameState = GameState.gameStarted;
         }
+#endif
         #endregion Dungeon create test code 
+
     }
 
     /// <summary>

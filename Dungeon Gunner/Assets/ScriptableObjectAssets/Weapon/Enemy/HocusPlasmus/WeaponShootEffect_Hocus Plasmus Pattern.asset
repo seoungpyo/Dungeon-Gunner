@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe4a84cdc343bd34a9ed3c079c41d681, type: 3}
-  m_Name: WeaponShootEffect_
+  m_Name: WeaponShootEffect_Hocus Plasmus Pattern
   m_EditorClassIdentifier: 
   colorGradient:
     serializedVersion: 2
