@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="DungeonLevel_", menuName ="Scriptable Object/Dungeon/Dungeon Level")]
